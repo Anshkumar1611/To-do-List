@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB").then(function(){
+mongoose.connect("mongodb+srv://admin-ansh:Test123@cluster0.6w4xp.mongodb.net/todolistDB?retryWrites=true&w=majority").then(function(){
     console.log("Succesfully  connected to Database");
 }).catch(function(err){
     console.log(err);
@@ -141,7 +141,10 @@ app.get("/about", function(req, res){
 });
 
 
+
 if (port == null || port == "") {
-  port = 8000;
+  port = 3000;
 }
-app.listen(port);
+app.listen(port,function(){
+  console.log("Server has started successfully ");
+});
